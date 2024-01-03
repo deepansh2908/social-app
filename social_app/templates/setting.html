@@ -1,0 +1,39 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="{% static 'assets/images/favicon.png' %}" rel="icon" type="image/png">
+    <title>Profile Page</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{% static 'assets/css/style.css' %}">
+
+</head>
+
+<body>
+    <div class="container m-auto"> 
+        <h1 > <a href="/">Home / </a> Profile for <b>{{user.username}}</b> </h1>
+        <br>
+        <hr>
+        <div class="friends">
+            <h1>Send friend requests</h1>
+            {% for user in allusers %}
+            <h1><a href="/profile/{{user}}">{{user}}</a></h1>
+            <h3><a href="/send_friend_request/{{user}}">send friend request</a></h3><br>
+            {% endfor %}
+        </div>
+        <br>
+        <hr>
+        <div class="pending">
+            <h1>Pending requests to this user</h1>
+            {% for friend_request in all_friend_requests %}
+            <h1>{{friend_request.from_user}}<a href="/accept_friend_request/{{friend_request.id}}">accept friend request</a></h1>
+            {% endfor %}
+        </div>
+    </div>
+    <script src="{% static 'assets/js/jquery-3.3.1.min.js' %}"></script>
+</body>
+</html>

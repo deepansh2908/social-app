@@ -1,0 +1,36 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="favicon.png" rel="icon" type="image/png">
+    <title>Search</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+    <header>
+        <div>
+            <h1 > <a href="/">Home / </a> Profile for <b>{{user.username}}</b> </h1>
+            <br>
+            <hr>
+        </div>
+    </header>
+            
+    <div>      
+        {% for users in username_profile_list %}
+        <section>
+            <div>
+                <h4 ><a href="/profile/{{users.user}}"><b>@{{users.user}}</b></a></h4>
+            </div>
+        </section>
+        {% endfor %}
+    </div>
+    <script src="{% static 'assets/js/jquery-3.3.1.min.js' %}"></script>
+</body>
+
+
+</html>

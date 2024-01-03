@@ -1,0 +1,49 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{% static 'assets/css/style.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <header>
+        <div class="header_inner">
+            <form action="/search" method="POST">
+            {% csrf_token %}
+            <div>
+                <div>
+                    <a href="/">
+                        <b><h1>Social App</h1></b>
+                    </a>
+                </div>
+                <input type="text" name="username" style="width: 50%; height: 50px" placeholder="Search for username..">
+                <button type="submit" style="height: 50px"><i class="fa fa-search fa-1x"></i></button>
+
+            </div>
+            </form>
+            <div>
+                <div style="text-align:right">
+                        <h2 style="text-align:right"><a href="/settings"> Profile Page </a> </h2>
+                        <h2 style="text-align:right"><a href="logout"> Log Out</a></h2>
+                </div>
+
+            </div>
+        </div>
+    </header>
+
+    <div><h1>People you may know</h1></div>
+    <div style="display:flex; flex-direction:column">
+        {% for name in names %}
+        <h1><a href="/profile/{{name}}">{{name}}</a><br><hr></h1>
+        {% endfor %}
+    </div>
+
+    <script src="{% static 'assets/js/jquery-3.3.1.min.js' %}"></script>
+</body>
+</html>

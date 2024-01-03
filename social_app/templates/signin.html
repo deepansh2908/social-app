@@ -1,0 +1,62 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{% static 'assets/css/style.css' %}">
+</head>
+<body class="bg-gray-100">
+    <div id="wrapper">
+        <div >
+            <div>
+                <div>
+                    <b><h1 style="font-size: 1.5rem;">Social App</h1></b>
+                    <br>
+                    <hr>
+                </div>
+            </div>
+        </div>
+        <div>
+            <div>
+                <br>
+                <h1 style="text-align:center">Log in Form</h1>
+                    <br>
+                <div>
+                    <style>
+                        h5{
+                            color: red;
+                        }
+                    </style>
+                    {% for message in messages %}
+                        <h5>{{message}}</h5>
+                    {% endfor %}
+                </div>
+
+                <form action="" method="POST">
+                    <!-- add csrf token when using POST -->
+                    {% csrf_token %}
+                    <input type="text" name="username" placeholder="Username">
+                    <input type="password" name="password" placeholder="password">
+                    <button type="submit" ><b>Login</b></button>
+                    <br>
+                    <hr>
+                    <div class="text-center mt-5 space-x-2">
+                        <p > Not registered? <a href="/signup" class=""><b>Create an account</b>  </a></p>
+                    </div>
+                </form>
+
+
+            </div>
+        </div>
+
+    </div>
+    <script src="{% static 'assets/js/jquery-3.3.1.min.js' %}"></script>
+</body>
+
+
+</html>

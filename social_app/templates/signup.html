@@ -1,0 +1,61 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{% static 'assets/css/style.css' %}">
+
+</head>
+
+<body class="bg-gray-100">
+    <div id="wrapper">
+        <div class="bg-white ">
+            <div class="max-w-6xl mx-auto">
+                <div>
+                    <b><h1 >Social App</h1></b>
+                    <br>
+                    <hr>
+                </div>
+            </div>
+        </div>
+        <div>
+            <div >
+                <br>
+                <h1 style="text-align:center"> Sign up Form</h1>
+                <br>
+                <div>
+                    <style>
+                        h5{
+                            color: red;
+                        }
+                    </style>
+                    {% for message in messages %}
+                        <h5>{{message}}</h5>
+                    {% endfor %}
+                </div>
+                <!-- action is blank it means the data will be sent back to this page -->
+                <form action="" method="POST">
+                    <!-- add csrf token when using POST -->
+                    {% csrf_token %}
+                    <input type="text" name="username" placeholder="Username">
+                    <input type="email" name="email" placeholder="Email" >
+                    <input type="password" name="password" placeholder="Password" >
+                    <input type="password" name="password2" placeholder="Confirm Password">
+                    <br>
+                    <hr>
+                    <button type="submit" class=" py-3 rounded-md text-white text-xl w-full"><b>Sign Up</b></button>
+                    <div class="text-center">
+                        <p class="text-base"> Do you have an account? <a href="/signin"> <b>Login</b></a></p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="{% static 'assets/js/jquery-3.3.1.min.js' %}"></script>
+</body>
+</html>

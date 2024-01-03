@@ -1,0 +1,23 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+	<title>Profile - {{user_profile.user.username}}</title>
+
+</head>
+<body>
+	<div>
+		<h1><a href="/">Home Page</a></h1>
+		<h1>Username - {{user_profile.user.username}}</h1>
+		<h1>Email - {{user_profile.user.email}}</h1>
+		<button name="send fr">Send friend request</button>
+	</div>
+</body>	
+
+
+</html>
